@@ -19,11 +19,6 @@ function onLoginSubmit(event) {
     greetingMachine(username);
 
 }
-function linkClicked(event) {
-    event.preventDefault();
-    console.dir(event);
-
-}
 
 function greetingMachine(username) {
     greeting.innerText = `Hello ${username}`;
@@ -31,7 +26,6 @@ function greetingMachine(username) {
 
 }
 
-linkButton.addEventListener("click", linkClicked);
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
