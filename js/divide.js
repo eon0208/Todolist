@@ -87,16 +87,29 @@ const splitSpace = quotes.split('\n');
 const splitEnter = filterItems('-');
 const dividePoint = '-';
 
-function divideAuthor() {
+const array = new Array();
+
+function divideResult() {
     for (let i = 0; i < splitEnter.length; i++) {
         const a = splitEnter[i].toString();
         const stringIndex = a.indexOf(dividePoint);
-        console.log(stringIndex);
         const quote = a.substring(0, stringIndex);
-        const author = a.substring(stringIndex);
-        console.log("quote : " + quote);
-        console.log("author: " + author);
+        const author = a.substring(stringIndex + 1);
+
+        toJson(quote, author);
+
     }
+
+    console.log(array);
+    return array;
+}
+
+function toJson(a, b) {
+    const divideResult = { quote: `${a}`, author: `${b}` };
+    const jsonResult = JSON.stringify(divideResult);
+
+    array.push(jsonResult);
+
 }
 
 function filterItems(query) {
@@ -106,4 +119,4 @@ function filterItems(query) {
 }
 
 
-divideAuthor();
+divideResult();
