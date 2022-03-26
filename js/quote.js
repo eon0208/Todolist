@@ -1,3 +1,4 @@
+
 const quotes = `교묘하게 속이는 것보다 서투르더라도 성실한 것이 좋다. - 한비자 
 
 근면과 성실로 재산을 모은 것은 신의 섭리에 어긋나지 않는다. - 켈빈
@@ -83,6 +84,7 @@ const quotes = `교묘하게 속이는 것보다 서투르더라도 성실한 �
 
 노력은 수단이 아니라 그 자체가 목적이다.노력하는 것 자체에 보람을 느낀다면 누구든지 인생의 마지막 시점에서 미소를 지을 수 있을 것이다. - 톨스토이`;
 
+
 const splitSpace = quotes.split('\n');
 const splitEnter = filterItems('-');
 const dividePoint = '-';
@@ -96,19 +98,16 @@ function divideResult() {
         const quote = a.substring(0, stringIndex);
         const author = a.substring(stringIndex + 1);
 
-        toJson(quote, author);
+        toObject(quote, author);
 
     }
-
-    console.log(array);
     return array;
 }
 
-function toJson(a, b) {
+function toObject(a, b) {
     const divideResult = { quote: `${a}`, author: `${b}` };
-    const jsonResult = JSON.stringify(divideResult);
 
-    array.push(jsonResult);
+    array.push(divideResult);
 
 }
 
@@ -118,10 +117,13 @@ function filterItems(query) {
     })
 }
 
+const objArray = divideResult();
+
+console.log(objArray);
 
 const quote = document.querySelector("#quote span:first-child");
 const author = document.querySelector("#quote span:last-child");
-const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
+const todaysQuote = objArray[Math.floor(Math.random() * objArray.length)];
 
 quote.innerText = todaysQuote.quote;
 author.innerText = todaysQuote.author;
