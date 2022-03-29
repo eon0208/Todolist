@@ -119,7 +119,6 @@ function filterItems(query) {
 
 const objArray = divideResult();
 
-console.log(objArray);
 
 const quote = document.querySelector("#quote span:first-child");
 const author = document.querySelector("#quote span:last-child");
